@@ -1,5 +1,3 @@
-import Notiflix from 'notiflix';
-
 const form = document.querySelector('.form');
 
 function createPromise(position, delay) {
@@ -8,10 +6,8 @@ function createPromise(position, delay) {
       const shouldResolve = Math.random() > 0.3;
       if (shouldResolve) {
         resolve({ position, delay });
-        Notiflix.Notify.success(`Promise ${position} fulfilled in ${delay}ms`);
       } else {
         reject({ position, delay });
-        Notiflix.Notify.failure(`Promise ${position} rejected in ${delay}ms`);
       }
     }, delay);
   });
@@ -41,6 +37,4 @@ form.addEventListener('submit', (event) => {
       
     currentDelay += step;
   }
-  
-  Notiflix.Report.success('All promises fulfilled', `${amount} promises fulfilled successfully in total`);
 });
